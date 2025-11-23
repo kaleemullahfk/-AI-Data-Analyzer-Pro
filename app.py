@@ -23,6 +23,8 @@ st.set_page_config(
 )
 
 # Custom CSS
+# Custom CSS
+# Custom CSS
 st.markdown("""
 <style>
     .main-header {
@@ -34,6 +36,7 @@ st.markdown("""
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+
     .metric-card {
         background-color: #f8f9fa;
         border-radius: 10px;
@@ -41,6 +44,22 @@ st.markdown("""
         border-left: 4px solid #1f77b4;
         margin: 10px 0;
     }
+
+    /* 🌙 Light/Dark compatible welcome box */
+    .welcome-box {
+        background-color: #f8f9fa;
+        padding: 2rem;
+        border-radius: 10px;
+        border-left: 4px solid #1f77b4;
+        color: #212529; /* dark text for light mode */
+    }
+    @media (prefers-color-scheme: dark) {
+        .welcome-box {
+            background-color: #1e1e1e; /* dark background */
+            color: #f8f9fa; /* light text */
+        }
+    }
+
     .chart-header {
         font-size: 1.3rem;
         color: #2e86ab;
@@ -48,6 +67,7 @@ st.markdown("""
         border-bottom: 2px solid #e9ecef;
         padding-bottom: 0.5rem;
     }
+
     .success-box {
         background-color: #d4edda;
         border: 1px solid #c3e6cb;
@@ -55,6 +75,7 @@ st.markdown("""
         padding: 15px;
         margin: 10px 0;
     }
+
     .warning-box {
         background-color: #fff3cd;
         border: 1px solid #ffeaa7;
@@ -62,6 +83,7 @@ st.markdown("""
         padding: 15px;
         margin: 10px 0;
     }
+
     .info-box {
         background-color: #d1ecf1;
         border: 1px solid #bee5eb;
@@ -69,6 +91,7 @@ st.markdown("""
         padding: 15px;
         margin: 10px 0;
     }
+
     .tab-container {
         background-color: #f8f9fa;
         border-radius: 10px;
@@ -77,6 +100,8 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+
+
 
 
 class SmartDashboardBuilder:
@@ -788,9 +813,9 @@ C015,27,Male,Maryland,47000,670,77,Silver"""
             st.error(f"Error processing data: {str(e)}")
 
     else:
-        # Welcome section
+    # Welcome section
         st.markdown("""
-        <div style='background-color: #f8f9fa; padding: 2rem; border-radius: 10px; border-left: 4px solid #1f77b4;'>
+        <div class="welcome-box">
         <h3>🚀 Welcome to AI Data Analyzer Pro!</h3>
         <p>Your all-in-one solution for data analysis, cleaning, and visualization.</p>
 
@@ -823,6 +848,7 @@ C015,27,Male,Maryland,47000,670,77,Silver"""
         <p><strong>Get started:</strong> Upload a CSV file or try one of our sample datasets!</p>
         </div>
         """, unsafe_allow_html=True)
+
 
         # Sample data options
         st.markdown("### 🧪 Try with Sample Data")
